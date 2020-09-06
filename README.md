@@ -27,10 +27,11 @@
     * [new Config(name, opts)](#new_Config_new)
     * _instance_
         * [.save()](#Config+save)
-        * [.getContent()](#Config+getContent) ⇒ <code>JSON</code>
+        * [.getContent()](#Config+getContent) ⇒ <code>JSON5</code>
         * [.set(key, value)](#Config+set) ⇒ [<code>Config</code>](#Config)
         * [.get(key)](#Config+get) ⇒ <code>any</code>
         * [.exists(key)](#Config+exists) ⇒ <code>boolean</code>
+        * [.toJSON()](#Config+toJSON) ⇒ <code>JSON</code>
     * _static_
         * [.version](#Config.version) ⇒ <code>string</code>
         * [.create(name, opts)](#Config.create) ⇒ [<code>Config</code>](#Config)
@@ -48,6 +49,11 @@ constructor - create or retrieve a configuration
 | name | <code>string</code> | the name of the config (also the name of the file) |
 | opts | [<code>OptionsObject</code>](#OptionsObject) |  |
 
+**Example**  
+```js
+const keybindings = new Config('keybindings')
+ const settings = new Config('settings.json')
+```
 <br />
 <a name="Config+save"></a>
 
@@ -55,14 +61,22 @@ constructor - create or retrieve a configuration
 save - Save the config file
 
 <!-- Empty to hide the `**Kind**` tag in documentation -->
+**Example**  
+```js
+config.save()
+```
 <br />
 <a name="Config+getContent"></a>
 
-### config.getContent() ⇒ <code>JSON</code>
+### config.getContent() ⇒ <code>JSON5</code>
 getContent - get the parsed content of the file
 
 <!-- Empty to hide the `**Kind**` tag in documentation -->
-**Returns**: <code>JSON</code> - the JSON content of the file  
+**Returns**: <code>JSON5</code> - the JSON5 content of the file  
+**Example**  
+```js
+let fileContent = config.getContent() // --> {_name: 'settings', ....}
+```
 <br />
 <a name="Config+set"></a>
 
@@ -81,6 +95,14 @@ set - Set an config value
 | key | <code>string</code> | 
 | value | <code>string</code> | 
 
+**Example**  
+```js
+config.set('property', 'some value')
+config.set(randomObject)
+config
+   .set({position: {x:1, y:5}})
+   .set('speed', {vx: 2, vy: 0})
+```
 <br />
 <a name="Config+get"></a>
 
@@ -94,6 +116,11 @@ get - Get a key of the config
 | --- | --- |
 | key | <code>string</code> | 
 
+**Example**  
+```js
+config.get() --> return the whole config
+config.get('key') --> value
+```
 <br />
 <a name="Config+exists"></a>
 
@@ -106,12 +133,32 @@ exists - If a key exists
 | --- | --- |
 | key | <code>string</code> | 
 
+**Example**  
+```js
+config.exists('key') --> true/false
+```
+<br />
+<a name="Config+toJSON"></a>
+
+### config.toJSON() ⇒ <code>JSON</code>
+toJSON - Convert the config to a JSON compatible format
+
+<!-- Empty to hide the `**Kind**` tag in documentation -->
+**Returns**: <code>JSON</code> - The JSON object  
+**Example**  
+```js
+const JsonConfig = config.toJSON()
+```
 <br />
 <a name="Config.version"></a>
 
 ### Config.version ⇒ <code>string</code>
 <!-- Empty to hide the `**Kind**` tag in documentation -->
 **Returns**: <code>string</code> - The version of the library  
+**Example**  
+```js
+const version = Config.version --> 0.1.1
+```
 <br />
 <a name="Config.create"></a>
 
@@ -125,6 +172,10 @@ exists - If a key exists
 | name | <code>string</code> | the name of the config (also the name of the file) |
 | opts | [<code>OptionsObject</code>](#OptionsObject) |  |
 
+**Example**  
+```js
+const settings = Config.create('settings', {extension: '.config'}) // same as `new Config(...)`
+```
 <br />
 <br />
 <a name="Config"></a>
@@ -136,10 +187,11 @@ exists - If a key exists
     * [new Config(name, opts)](#new_Config_new)
     * _instance_
         * [.save()](#Config+save)
-        * [.getContent()](#Config+getContent) ⇒ <code>JSON</code>
+        * [.getContent()](#Config+getContent) ⇒ <code>JSON5</code>
         * [.set(key, value)](#Config+set) ⇒ [<code>Config</code>](#Config)
         * [.get(key)](#Config+get) ⇒ <code>any</code>
         * [.exists(key)](#Config+exists) ⇒ <code>boolean</code>
+        * [.toJSON()](#Config+toJSON) ⇒ <code>JSON</code>
     * _static_
         * [.version](#Config.version) ⇒ <code>string</code>
         * [.create(name, opts)](#Config.create) ⇒ [<code>Config</code>](#Config)
@@ -157,6 +209,11 @@ constructor - create or retrieve a configuration
 | name | <code>string</code> | the name of the config (also the name of the file) |
 | opts | [<code>OptionsObject</code>](#OptionsObject) |  |
 
+**Example**  
+```js
+const keybindings = new Config('keybindings')
+ const settings = new Config('settings.json')
+```
 <br />
 <a name="Config+save"></a>
 
@@ -164,14 +221,22 @@ constructor - create or retrieve a configuration
 save - Save the config file
 
 <!-- Empty to hide the `**Kind**` tag in documentation -->
+**Example**  
+```js
+config.save()
+```
 <br />
 <a name="Config+getContent"></a>
 
-### config.getContent() ⇒ <code>JSON</code>
+### config.getContent() ⇒ <code>JSON5</code>
 getContent - get the parsed content of the file
 
 <!-- Empty to hide the `**Kind**` tag in documentation -->
-**Returns**: <code>JSON</code> - the JSON content of the file  
+**Returns**: <code>JSON5</code> - the JSON5 content of the file  
+**Example**  
+```js
+let fileContent = config.getContent() // --> {_name: 'settings', ....}
+```
 <br />
 <a name="Config+set"></a>
 
@@ -190,6 +255,14 @@ set - Set an config value
 | key | <code>string</code> | 
 | value | <code>string</code> | 
 
+**Example**  
+```js
+config.set('property', 'some value')
+config.set(randomObject)
+config
+   .set({position: {x:1, y:5}})
+   .set('speed', {vx: 2, vy: 0})
+```
 <br />
 <a name="Config+get"></a>
 
@@ -203,6 +276,11 @@ get - Get a key of the config
 | --- | --- |
 | key | <code>string</code> | 
 
+**Example**  
+```js
+config.get() --> return the whole config
+config.get('key') --> value
+```
 <br />
 <a name="Config+exists"></a>
 
@@ -215,12 +293,32 @@ exists - If a key exists
 | --- | --- |
 | key | <code>string</code> | 
 
+**Example**  
+```js
+config.exists('key') --> true/false
+```
+<br />
+<a name="Config+toJSON"></a>
+
+### config.toJSON() ⇒ <code>JSON</code>
+toJSON - Convert the config to a JSON compatible format
+
+<!-- Empty to hide the `**Kind**` tag in documentation -->
+**Returns**: <code>JSON</code> - The JSON object  
+**Example**  
+```js
+const JsonConfig = config.toJSON()
+```
 <br />
 <a name="Config.version"></a>
 
 ### Config.version ⇒ <code>string</code>
 <!-- Empty to hide the `**Kind**` tag in documentation -->
 **Returns**: <code>string</code> - The version of the library  
+**Example**  
+```js
+const version = Config.version --> 0.1.1
+```
 <br />
 <a name="Config.create"></a>
 
@@ -234,6 +332,10 @@ exists - If a key exists
 | name | <code>string</code> | the name of the config (also the name of the file) |
 | opts | [<code>OptionsObject</code>](#OptionsObject) |  |
 
+**Example**  
+```js
+const settings = Config.create('settings', {extension: '.config'}) // same as `new Config(...)`
+```
 <br />
 <br />
 <a name="OptionsObject"></a>
