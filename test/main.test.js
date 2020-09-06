@@ -1,16 +1,14 @@
 const Config = require('../lib/main')
+const path = require('path')
 
-const clientConf = new Config('client')
-const keyBindConf = new Config('keybind')
+if (false) {
+    const keybindings = new Config('keybindings') // Create a file or return the file
+    keybindings.set('Z', 'Move up')
+    keybindings.get('D') // -->  'Move left'
+    keybindings.exists('name') // --> false
+    keybindings.set('player_name', 'dorian')
+}
 
-clientConf.set('keybind', true)
-
-keyBindConf.set({
-    move: 'A',
-    shoot: 'B'
-})
-
-clientConf.set('name', 'Dorian')
-
-clientConf.save()
-keyBindConf.save()
+const settings = Config.create('settings', { folder: path.resolve('./config') })
+    .set('first-property', .567)
+    .set('second-property', false)
