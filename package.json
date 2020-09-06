@@ -4,7 +4,7 @@
     "description": "A simple library for NodeJS to deal with config files",
     "main": "lib/main.js",
     "scripts": {
-        "test": "jest --runInBand",
+        "test": "node test/main.test.js",
         "dev": "nodemon lib/main.js",
         "docs": "node_modules/.bin/jsdoc2md  --no-cache --partial docs/*.hbs -t docs/README.hbs lib/*.js > README.md",
         "publish": "npm run docs && PACKAGE_VERSION=$(cat package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && git commit . -m \"publish $PACKAGE_VERSION to npm\" && git tag $PACKAGE_VERSION && git push && npm publish"
@@ -37,5 +37,7 @@
         "jsdoc-to-markdown": "^6.0.1",
         "nodemon": "^2.0.4"
     },
-    "dependencies": {}
+    "dependencies": {
+        "json5": "^2.1.3"
+    }
 }
