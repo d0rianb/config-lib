@@ -12,3 +12,5 @@ if (false) {
 const settings = Config.create('settings', { folder: path.resolve('./config') })
     .set('first-property', .567)
     .set('second-property', false)
+
+console.log(settings.toJSON())
