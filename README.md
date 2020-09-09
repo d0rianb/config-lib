@@ -1,5 +1,9 @@
 # Config library
 
+[![npm version](https://badge.fury.io/js/%40dorianb%2Fconfig-js.svg)](https://badge.fury.io/js/%40dorianb%2Fconfig-js)
+[![npm version](https://badgen.net/npm/dt/@dorianb/config-js)](https://www.npmjs.com/package/@dorianb/config-js)
+
+
 ## Documentation
 
 ## Classes
