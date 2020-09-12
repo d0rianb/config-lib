@@ -3,17 +3,31 @@
 [![npm version](https://badge.fury.io/js/%40dorianb%2Fconfig-js.svg)](https://badge.fury.io/js/%40dorianb%2Fconfig-js)
 [![npm version](https://badgen.net/npm/dt/@dorianb/config-js)](https://www.npmjs.com/package/@dorianb/config-js)
 
+## Installation
+To install the package, just run :
+`bash npm install --save @dorianb/config-js`
+
+Then in the `.js` file :
+```js
+const Config = require('@dorianb/config-js')
+const conf = new Config('path/to/the/config')
+
+if (conf.exists('key')) {
+    let value = conf.get('key')
+    conf.set('key', value)
+}
+```
 
 ## Documentation
 
-## Classes
+### Classes
 
 <dl>
 <dt><a href="#Config">Config</a></dt>
 <dd></dd>
 </dl>
 
-## Typedefs
+### Typedefs
 
 <dl>
 <dt><a href="#OptionsObject">OptionsObject</a> : <code>Object</code></dt>
@@ -22,7 +36,7 @@
 
 <a name="Config"></a>
 
-## Config
+### Config
 <!-- Empty to hide the `**Kind**` tag in documentation -->
 
 * [Config](#Config)
@@ -40,7 +54,7 @@
 
 <a name="new_Config_new"></a>
 
-### new Config(name, opts)
+#### new Config(name, opts)
 constructor - create or retrieve a configuration
 
 <!-- Empty to hide the `**Kind**` tag in documentation -->
@@ -59,7 +73,7 @@ const settings = new Config('settings.json')
 <br />
 <a name="Config+save"></a>
 
-### config.save()
+#### config.save()
 save - Save the config file
 
 <!-- Empty to hide the `**Kind**` tag in documentation -->
@@ -70,7 +84,7 @@ config.save()
 <br />
 <a name="Config+getContent"></a>
 
-### config.getContent() ⇒ <code>JSON5</code>
+#### config.getContent() ⇒ <code>JSON5</code>
 getContent - get the parsed content of the file
 
 <!-- Empty to hide the `**Kind**` tag in documentation -->
@@ -82,7 +96,7 @@ let fileContent = config.getContent() // --> {_name: 'settings', ....}
 <br />
 <a name="Config+set"></a>
 
-### config.set(key, value) ⇒ [<code>Config</code>](#Config)
+#### config.set(key, value) ⇒ [<code>Config</code>](#Config)
 set - Set an config value
 
 <!-- Empty to hide the `**Kind**` tag in documentation -->
@@ -108,7 +122,7 @@ config
 <br />
 <a name="Config+get"></a>
 
-### config.get(key) ⇒ <code>any</code>
+#### config.get(key) ⇒ <code>any</code>
 get - Get a key of the config
 
 <!-- Empty to hide the `**Kind**` tag in documentation -->
@@ -126,7 +140,7 @@ config.get('key') // --> value
 <br />
 <a name="Config+exists"></a>
 
-### config.exists(key) ⇒ <code>boolean</code>
+#### config.exists(key) ⇒ <code>boolean</code>
 exists - If a key exists
 
 <!-- Empty to hide the `**Kind**` tag in documentation -->
@@ -142,7 +156,7 @@ config.exists('key') // --> true/false
 <br />
 <a name="Config+toJSON"></a>
 
-### config.toJSON() ⇒ <code>JSON</code>
+#### config.toJSON() ⇒ <code>JSON</code>
 toJSON - Convert the config to a JSON compatible format
 
 <!-- Empty to hide the `**Kind**` tag in documentation -->
@@ -154,7 +168,7 @@ const JsonConfig = config.toJSON()
 <br />
 <a name="Config.version"></a>
 
-### Config.version ⇒ <code>string</code>
+#### Config.version ⇒ <code>string</code>
 <!-- Empty to hide the `**Kind**` tag in documentation -->
 **Returns**: <code>string</code> - The version of the library  
 **Example**  
@@ -164,7 +178,7 @@ const version = Config.version --> 0.1.1
 <br />
 <a name="Config.create"></a>
 
-### Config.create(name, opts) ⇒ [<code>Config</code>](#Config)
+#### Config.create(name, opts) ⇒ [<code>Config</code>](#Config)
 <!-- Empty to hide the `**Kind**` tag in documentation -->
 **Chainable**  
 **Returns**: [<code>Config</code>](#Config) - the config object  
@@ -182,7 +196,7 @@ const settings = Config.create('settings', {extension: '.config'}) // same as `n
 <br />
 <a name="OptionsObject"></a>
 
-## OptionsObject : <code>Object</code>
+### OptionsObject : <code>Object</code>
 <!-- Empty to hide the `**Kind**` tag in documentation -->
 **Properties**
 

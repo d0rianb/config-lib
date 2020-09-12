@@ -3,6 +3,20 @@
 [![npm version](https://badge.fury.io/js/%40dorianb%2Fconfig-js.svg)](https://badge.fury.io/js/%40dorianb%2Fconfig-js)
 [![npm version](https://badgen.net/npm/dt/@dorianb/config-js)](https://www.npmjs.com/package/@dorianb/config-js)
 
+## Installation
+To install the package, just run :
+`bash npm install --save @dorianb/config-js`
+
+Then in the `.js` file :
+```js
+const Config = require('@dorianb/config-js')
+const conf = new Config('path/to/the/config')
+
+if (conf.exists('key')) {
+    let value = conf.get('key')
+    conf.set('key', value)
+}
+```
 
 ## Documentation
 
