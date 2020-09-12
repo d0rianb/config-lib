@@ -1,6 +1,6 @@
 {
     "name": "@dorianb/config-js",
-    "version": "0.1.2",
+    "version": "0.1.3",
     "description": "A simple library for NodeJS to deal with config files",
     "main": "lib/main.js",
     "scripts": {
