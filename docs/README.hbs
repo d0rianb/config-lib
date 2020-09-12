@@ -10,11 +10,12 @@ To install the package, just run :
 Then in the `.js` file :
 ```js
 const Config = require('@dorianb/config-js')
-const conf = new Config('path/to/the/config')
 
-if (conf.exists('key')) {
-    let value = conf.get('key')
-    conf.set('key', value)
+const config = new Config('path/to/the/config')
+
+if (config.exists('key')) {
+    let value = config.get('key')
+    config.set('key', value)
 }
 ```
 
